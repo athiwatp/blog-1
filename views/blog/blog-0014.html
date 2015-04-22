@@ -1,15 +1,33 @@
 <article>
 <h1>
+What wrong with Spring MVC
 </h1>
 <date>
+2015-04-22
 </date>
 
 <p>
+Spring MVC is a great framework, very flexible and productive system. But it
+still have many drawbacks, for example: it comes with very ugly import list,
+check out the following code:
 </p>
 
-<p>
-</p>
+<pre>
+import org.springframework.boot.*;
+import org.springframework.boot.autoconfigure.*;
+import org.springframework.context.annotation.*;
+import org.springframework.stereotype.*;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.*;
+import org.springframework.web.servlet.view.*;
+import org.springframework.web.servlet.config.annotation.*;
+...
+</pre>
 
 <p>
+No one can remember the above code, people just copy and paste the code and
+start writing your own code. I'm gonna expand Cool! MVC to Java, which will
+solve this problem effectively.
 </p>
+
 </article>
