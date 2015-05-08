@@ -82,6 +82,7 @@ class Test {
 		var server = new Server(controller);
 		// server.middleware.push(new Logger());
 		server.middleware.push(new Less());
+		server.port = 2200;
 		server.start();
 		var system = new System();
 		system.write(server.text());
