@@ -171,8 +171,12 @@ header.small-header {
 main class Main {
 
 	method scroll(e) {
-		var system = new System();
-		system.write("Scrolling " + this.scrollY);
+		var web = new Web();
+		var items = web.list('.banner');
+		for (var i = 0; i < items.length; i++) {
+			items[i].style['background-position'] = 
+				"0 -" + (window.scrollY * 1.2) + "px";
+		}
 	}
 
 	method resize(e) {
