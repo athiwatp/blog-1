@@ -125,6 +125,9 @@ header.small-header h1 {
 		text-shadow: 0 0 10px white;
 		*/
 }
+.icon-container {
+  min-height: 200px;
+}
 .icon {
   font-size: 5rem;
   color: steelblue;
