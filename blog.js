@@ -180,9 +180,14 @@ function File (name){ Root.call(this);
 	this.write = function (data) {
 		this.fs.writeFileSync(this.name, data);
 	}
+	this.exists = function () {
+		return this.fs.existsSync(this.name);
+	}
 	this.list = function () {
-		var list = this.fs.readdirSync(this.name);
-		return list;
+		return this.fs.readdirSync(this.name);
+	}
+	this.isDirectory = function () {
+		return this.fs.statsSync(this.name).isDirectory();
 	}
 }
 
@@ -213,21 +218,6 @@ function Float () {  Root.call(this);
 	this.class = "Float";
 	this.parse = function (f) { return parseFloat(f); }
 }
-
-
-
-/*
-this.exists = function (name) {
-	return this.fs.existsSync(name);
-}
-this.list = function (name) {
-	return this.fs.readdirSync(name);
-}
-this.isDirectory = function (name) {
-	var info = this.fs.statsSync(name);
-	return info.isDirectory();
-}
-*/
 
 // Web MVC Framework
 
@@ -416,7 +406,6 @@ function Less () {  Middleware.call(this);
 	this.less = require('less');
 
 	this.request = function (context) {
-		var urlTokens  = context.request.url.split("/");
 		var path       = context.server.folder + context.request.url;
 		var pathTokens = path.split(".");
 		var fileType   = pathTokens[pathTokens.length-1];
@@ -436,7 +425,4 @@ function Less () {  Middleware.call(this);
 		}
 	}
 }
-
-// TODO: On production server, .html, .js, .css must be minified
-// or create minified middleware
 
